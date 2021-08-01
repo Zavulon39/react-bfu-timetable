@@ -1,0 +1,161 @@
+@import "vars";
+
+.institute-item {
+  background: $SECONDARY_COLOR;
+  padding: 8px;
+  border-radius: 8px;
+  margin: 12px 8px;
+
+  span {
+    color: #fff;
+  }
+}
+
+.tl-item {
+  padding: 8px;
+  border-radius: 8px;
+  margin: 14px 8px;
+  text-align: center;
+
+  span {
+    color: $MAIN_COLOR;
+    font-size: 18px;
+  }
+
+  &.active {
+    background: $MAIN_COLOR;
+
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.group-item {
+  padding: 8px;
+  border-radius: 8px;
+  margin: 14px 8px;
+  text-align: center;
+  background: $SECONDARY_COLOR;
+
+  span {
+    color: #fff;
+    font-size: 18px;
+  }
+}
+
+.item {
+  position: relative;
+  animation: enter .3s;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.anim-item {
+  position: relative;
+  animation: enter .2s;
+}
+
+.student-container {
+  max-width: 800px;
+  margin-top: 18px;
+
+  .student-timetable {
+    width: 100%;
+    min-height : 138px;
+    display: flex;
+    flex-direction: row;
+    margin: 8px;
+    position: relative;
+
+    .left {
+      border-bottom-left-radius: 8px;
+      border-top-left-radius: 8px;
+      background: $MAIN_COLOR;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 30%;
+
+      div {
+        color: #fff;
+        font-size: 1.15rem;
+
+        &:first-child {
+          margin-bottom: 4px;
+          font-weight: 500;
+        }
+      }
+    }
+
+    .right {
+      width: 70%;
+      border-bottom: 1.5px solid $GRAY_COLOR;
+      border-top: 1.5px solid $GRAY_COLOR;
+      border-right: 1.5px solid $GRAY_COLOR;
+      border-bottom-right-radius: 8px;
+      border-top-right-radius: 8px;
+
+      .row1, .row2, .row3 {
+        margin: 0 16px;
+      }
+
+      .row1 {
+        display: flex;
+        flex-direction: row;
+        margin-top: 8px;
+
+        .student-item {
+          width: 110px;
+          height: 24px;
+          background: $SECONDARY_COLOR;
+          color: #fff;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:last-child {
+            margin-left: 12px;
+          }
+        }
+      }
+
+      .row2 {
+        margin-top: 12px;
+      }
+
+      .row3 {
+        display: flex;
+        width: calc(70% - 32px);
+        flex-direction: row;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 16px;
+        margin-top: 12px;
+
+        @media screen and (max-width: 450px){
+          position: unset;
+          flex-direction: column;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    bottom: -80px;
+  }
+
+  to {
+    opacity: 1;
+    bottom: 0;
+  }
+}

@@ -1,0 +1,55 @@
+@import "vars";
+
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: $MAIN_COLOR;
+  height: 80px;
+  padding: 0 24px;
+
+  .timetable-link {
+    color: #ccc;
+    font-size: 18px;
+
+    &:first-child {
+      margin-right: 12px;
+    }
+  }
+
+  .main-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .other-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .timetable-link {
+      color: #ccc;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .timetable-link:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 500px) {
+    .main-links {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .timetable-link:first-child {
+        margin-right: 0;
+        margin-bottom: 6px;
+      }
+    }
+  }
+}

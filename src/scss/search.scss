@@ -1,0 +1,38 @@
+@import "vars";
+
+.regular,
+.expanded {
+  margin-top: 1rem;
+}
+
+.expanded {
+  .divider {
+    height: 18px;
+  }
+
+  .MuiFormControl-root {
+    width: 100% !important;
+  }
+
+  .send {
+    margin-top: 24px;
+    width: 156px;
+    height: 36px;
+    background: $MAIN_COLOR;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .2s;
+
+    span {
+      font-size: 20px;
+      color: #fff;
+    }
+
+    &:hover {
+      background: darken($MAIN_COLOR, 10%);
+    }
+  }
+}
