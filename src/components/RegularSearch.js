@@ -59,15 +59,21 @@ export const RegularSearch = () => {
           onChange={searchHandler}
         />
       </form>
-      <h2 className="anim-item">Преподаватели</h2>
-      <Teachers
-        teachers={qs.teachers}
-        clickHandler={() => {}}
-      />
-      <h2 className="anim-item">Пары</h2>
-      <SearchTimetable
-        timetable={qs.pairs}
-      />
+      <details open={true} className="anim-item" style={{marginTop: 18}}>
+        <summary>Преподаватели</summary>
+        <h2 className="anim-item">Преподаватели</h2>
+        <Teachers
+          teachers={qs.teachers}
+          clickHandler={() => {}}
+        />
+      </details>
+      <details open={true} className="anim-item">
+        <summary>Пары</summary>
+        <h2 className="anim-item">Пары</h2>
+        <SearchTimetable
+          timetable={qs.pairs}
+        />
+      </details>
       <div style={{height: 40}}/>
     </div>
   )

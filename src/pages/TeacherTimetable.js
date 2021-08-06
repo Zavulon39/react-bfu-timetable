@@ -1,13 +1,14 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import {Header} from "../components/Header"
-import {Container, Grid, InputAdornment, TextField} from "@material-ui/core"
+import {Container, InputAdornment, TextField} from "@material-ui/core"
 import {Search} from '@material-ui/icons'
 import teacherManager from "../store/teachers"
 import abitsTimetable from "../store/abitsTimetable"
 import '../scss/teachers.scss'
-import {NotFound} from "../components/NotFound";
 import {Timetable} from "../components/Timetable";
 import {Teachers} from "../components/Teachers";
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
 
 export const TeacherTimetable = () => {
   const [search, setSearch] = useState('')
@@ -17,6 +18,7 @@ export const TeacherTimetable = () => {
   const [teacher, setTeacher] = useState('')
   const [date, setDate] = useState(new Date(Date.now()))
   const [initialTimetable, setInitialTimetable] = useState([])
+  const [open, setOpen] = useState(false)
 
   const searchHandler = event => {
     setSearch(event.target.value)
@@ -33,6 +35,7 @@ export const TeacherTimetable = () => {
       el.date.getMonth() === date.getMonth() &&
       el.date.getFullYear() === date.getFullYear()
     ))
+    setOpen(true)
   }
 
   return (
@@ -60,21 +63,27 @@ export const TeacherTimetable = () => {
           clickHandler={clickHandler}
         />
 
-        {
-          showTimetable ? <>
-              <h1 className="anim-item mt-40">Расписание для преподавателя <strong>{teacher}</strong>:</h1>
-              <Timetable
-                timetable={timetable}
-                setTimetable={setTimetable}
-                initialTimetable={initialTimetable}
-                date={date}
-                setDate={setDate}
-              />
-            </>
-            : null
-        }
-
         <div style={{height: 40}}/>
+        <Modal
+          open={open}
+          onClose={() => setOpen(false)}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Container>
+            <h1 className="anim-item mt-40">Расписание для преподавателя <strong>{teacher}</strong>:</h1>
+            <Timetable
+              timetable={timetable}
+              setTimetable={setTimetable}
+              initialTimetable={initialTimetable}
+              date={date}
+              setDate={setDate}
+            />
+          </Container>
+        </Modal>
       </Container>
     </>
   )

@@ -36,7 +36,7 @@ export const Timetable = ({timetable, setTimetable, initialTimetable, date, setD
       {timetable.length ? <div className="student-container">
         {timetable.map(el => {
           return (
-            <div className="student-timetable anim-item" key={el.startTime.toLocaleDateString()}>
+            <div className="student-timetable anim-item" key={el.title}>
               <div className="left">
                 <div className="start-time">
                   {el.startTime.getHours() < 10 ? '0' : ''}
@@ -85,7 +85,7 @@ export const SearchTimetable = ({timetable}) => {
       <div className="student-container">
         {timetable.map(el => {
           return (
-            <div className="student-timetable anim-item" key={el.startTime.toLocaleDateString()}>
+            <div className="student-timetable anim-item" key={el.title}>
               <div className="left">
                 <div className="start-time">
                   {el.startTime.getHours() < 10 ? '0' : ''}

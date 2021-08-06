@@ -110,8 +110,10 @@
         margin-top: 8px;
 
         .student-item {
-          width: 110px;
-          height: 24px;
+          //width: 110px;
+          //height: 24px;
+          padding: 4px 16px;
+
           background: $SECONDARY_COLOR;
           color: #fff;
           border-radius: 12px;

@@ -3,13 +3,12 @@ import {Grid} from "@material-ui/core";
 import {NotFound} from "./NotFound";
 
 export const Teachers = ({teachers, clickHandler}) => {
-  console.log(teachers)
 
   return (
     <Grid container style={{marginTop: 8}}>
       {teachers.length ? teachers.map(el => {
         return (
-          <Grid item md={3} key={el.teacher} onClick={() => clickHandler(el.teacher)}>
+          <Grid item md={3} key={el.teacher + el.institut} onClick={() => clickHandler(el.teacher)}>
             <div className="teacher-item anim-item">
               <div className="name">
                 {el.teacher}

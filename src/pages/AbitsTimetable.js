@@ -85,7 +85,7 @@ export const AbitsTimetable = () => {
             <Grid container style={{marginTop: 8}}>
               {Object.entries(group).map(el => {
                 return (
-                  <Grid item md={2} key={el[0]} onClick={groupClickHandler.bind(null, el[0])}>
+                  <Grid item md={3} key={el[0]} onClick={groupClickHandler.bind(null, el[0])}>
                     <div className="group-item item">
                       <span>{el[0]}</span>
                     </div>
