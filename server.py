@@ -16,19 +16,19 @@ def parse(el: dict):
             for item in directions:
                 date = datetime.fromisoformat(item['date'])
 
-                if _start <= date <= date + timedelta(7):
+                if _start <= date <= _start + timedelta(7):
                     return True
 
     return False
 
 
 @app.get('/get_timetable/')
-def get_timetable(start: datetime = Query(datetime.now())):
+def get_timetable(start: str = Query(str(datetime.now()))):
     global _start
 
     with open('static/timetable.json', 'r') as file:
         json = load(file)
-        _start = start
+        _start = datetime(*map(int, start.split('T')[0].split('-')))
 
         json = list(filter(parse, json.items()))
 
